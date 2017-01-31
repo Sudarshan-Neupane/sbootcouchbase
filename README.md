@@ -29,6 +29,9 @@ package com.example;
 	import java.util.UUID;
 	import java.util.stream.Stream;
 
+
+
+
 	@SpringBootApplication
 		public class CouchabasedemoApplication {
 
@@ -36,13 +39,22 @@ package com.example;
 			SpringApplication.run(CouchabasedemoApplication.class, args);
 		}
 	}
+	
+	
+	
+	
+	
+	
 	 interface MovieRepository extends CouchbaseRepository<Movie,String>{
 	    Collection<Movie> findByTitle(String title);
 	 }
 
 
+
+
+
 	@Component
-	class SampleMovieCLR implements CommandLineRunner{
+ 	class SampleMovieCLR implements CommandLineRunner{
 		private final MovieRepository movieRepository;
 
 		public SampleMovieCLR(MovieRepository movieRepository){
@@ -55,6 +67,10 @@ package com.example;
 					.forEach(title->this.movieRepository.save(new Movie(UUID.randomUUID().toString(),title)));
 		}
 	}
+
+
+
+
 
 
 	@Document
